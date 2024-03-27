@@ -102,7 +102,7 @@ void AdjacencyList::print_page_rank() {
 }
 
 std::string AdjacencyList::get_page_rank() {
-    std::ostringstream oss;
+    std::ostringstream stream;
 
     auto iter = this->mp.begin();
 
@@ -111,9 +111,29 @@ std::string AdjacencyList::get_page_rank() {
     }
 
     while (iter != this->mp.end()) {
-        oss << iter->first << " " << std::fixed << std::setprecision(2) << this->page_rank[stoi(iter->second)] << std::endl;
+        stream << iter->first << " " << std::fixed << std::setprecision(2) << this->page_rank[stoi(iter->second)] << std::endl;
         iter++;
     }
 
-    return oss.str();
+    return stream.str();
+}
+
+void AdjacencyList::read_whole_input(std::string input) {
+    int num_lines, power_iterations;
+
+    std::istringstream stream(input);
+
+    // Read the number of lines and power iterations
+    stream >> num_lines >> power_iterations;
+
+    std::string from, to;
+    for (int i = 0; i < num_lines; i++) {
+        stream >> from >> to;
+
+        this->add_edge(from, to);
+    }
+
+    for (int i = 0; i < power_iterations; i++) {
+        this->multiply();
+    }
 }

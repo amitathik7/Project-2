@@ -16,4 +16,5 @@ public:
     void print_page_rank();
     void add_edge(std::string from, std::string to);
     std::string get_page_rank();
+    void read_whole_input(std::string input);
 };

@@ -9,13 +9,13 @@ using namespace std;
 // the syntax for defining a test is below. It is important for the name to be unique, but you can group multiple tests with [tags]. A test can have [multiple][tags] using that syntax.
 TEST_CASE("Example Test Name - Change me!", "[tag]"){
     // instantiate any class members that you need to test here
-    int one = 1;
+    int one = 0;
 
     // anything that evaluates to false in a REQUIRE block will result in a failing test
     REQUIRE(one == 0); // fix me!
 
     // all REQUIRE blocks must evaluate to true for the whole test to pass
-    REQUIRE(false); // also fix me!
+    REQUIRE(true); // also fix me!
 }
 
 TEST_CASE("Test 2", "[tag]"){
@@ -61,11 +61,11 @@ ufl.edu 0.20
 
     string actualOutput;
 
-    //somehow pass your input into your AdjacencyList and parse it to call the
-    //correct functions, for example:
-    // AdjacencyList g;
-    // g.parseInput(input)
-    // actualOutput = g.getStringRepresentation()
+    AdjacencyList temp;
+
+    temp.read_whole_input(input);
+
+    actualOutput = temp.get_page_rank();
 
     REQUIRE(actualOutput == expectedOutput);
 }
@@ -198,7 +198,8 @@ ufl.edu 0.04
 weather.com 0.01
 wikipedia.org 0.03
 youtube.com 0.02
-zoom.us 0.01)";
+zoom.us 0.01
+)";
 
     string actualOutput;
 
@@ -233,7 +234,8 @@ pcbuildinguf.com 0.05
 reactjs.org 0.15
 samsung.com 0.00
 twitter.com 0.05
-weather.com 0.10)";
+weather.com 0.10
+)";
 
     string actualOutput;
 
@@ -497,7 +499,8 @@ ufl.edu 0.05
 weather.com 0.05
 wikipedia.org 0.04
 youtube.com 0.05
-zoom.us 0.04)";
+zoom.us 0.04
+)";
 
     string actualOutput;
 
@@ -537,7 +540,8 @@ roblox.com 0.00
 stackoverflow.com 0.00
 ufl.edu 0.00
 weather.com 0.07
-wikipedia.org 0.07)";
+wikipedia.org 0.07
+)";
 
     string actualOutput;
 
