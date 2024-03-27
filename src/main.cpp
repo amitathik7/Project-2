@@ -19,5 +19,13 @@ int main() {
         cin >> to;
 
         list.add_edge(from, to);
+
+        cout << endl;
+    }
+
+    for (int i = 0; i < power_iterations; i++) {
+        list.multiply();
+
+        cout << endl;
     }
 }

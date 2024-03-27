@@ -9,7 +9,7 @@ public:
     std::unordered_map<std::string, std::string> mp;
     std::vector<std::vector<int>> matrix;
     std::vector<int> out_degree;
-    std::vector<double> page_rank;
+    std::vector<float> page_rank;
     int num_websites = 0;
 public:
     void multiply();
