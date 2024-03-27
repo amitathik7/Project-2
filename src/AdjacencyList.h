@@ -15,4 +15,5 @@ public:
     void multiply();
     void print_page_rank();
     void add_edge(std::string from, std::string to);
+    std::string get_page_rank();
 };

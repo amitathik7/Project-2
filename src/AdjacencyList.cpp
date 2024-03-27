@@ -1,6 +1,7 @@
 #include <iostream>
 #include "AdjacencyList.h"
 #include <iomanip>
+#include <sstream>
 
 void AdjacencyList::add_edge(std::string from, std::string to) {
     // Check whether the from address and/or the to address is new
@@ -98,4 +99,21 @@ void AdjacencyList::print_page_rank() {
         std::cout << iter->first << " " << std::fixed << std::setprecision(2) << this->page_rank[stoi(iter->second)] << std::endl;
         iter++;
     }
+}
+
+std::string AdjacencyList::get_page_rank() {
+    std::ostringstream oss;
+
+    auto iter = this->mp.begin();
+
+    for (int i = 0; i < this->num_websites; i++) {
+        iter++;
+    }
+
+    while (iter != this->mp.end()) {
+        oss << iter->first << " " << std::fixed << std::setprecision(2) << this->page_rank[stoi(iter->second)] << std::endl;
+        iter++;
+    }
+
+    return oss.str();
 }
